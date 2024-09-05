@@ -1,32 +1,28 @@
-import React, { Component } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-
+import { fetchUser } from '../actions/index';
 import Header from './Header/Header';
 import Landing from './Landing/Landing';
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
 
-class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+const App = () => {
+  const dispatch = useDispatch();
 
-  render() {
-    return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
-            <Route path="/surveys/new" component={SurveyNew} />
-          </div>
-        </BrowserRouter>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    // Fetch the user when the component mounts
+    dispatch(fetchUser());
+  }, [dispatch]);
 
-export default connect(null, actions)(App);
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path="/" component={Landing} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
+};
+
+export default App;
