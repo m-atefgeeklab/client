@@ -4,7 +4,7 @@ import { FETCH_USER } from './types';
 // Fetch user data from /user endpoint
 export const fetchUser = () => async dispatch => {
   try {
-    const res = await axios.get('/api/v1/auth/user');
+    const res = await axios.get('https://juice-box-api.onrender.com/api/v1/auth/user');
     
     if (res.data.token) {
       // Store token in localStorage

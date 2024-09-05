@@ -19,7 +19,7 @@ class Header extends Component {
           </li>
           <li key="3" style={{ margin: "0 5px 0 15px" }}>
             <a
-              href="/api/v1/auth/logout"
+              href="https://juice-box-api.onrender.com/api/v1/auth/logout"
               style={{ color: "#000", margin: "0 10px" }}
               onClick={handleLogout}
             >
@@ -32,7 +32,7 @@ class Header extends Component {
       return (
         <li>
           <a
-            href="/api/v1/auth/google"
+            href="https://juice-box-api.onrender.com/api/v1/auth/google"
             style={{ color: "#000", margin: "0 10px" }}
           >
             Login With Google
